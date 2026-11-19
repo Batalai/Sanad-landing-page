@@ -1,5 +1,10 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#021419">
 <title>مبادرة سند</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&family=Lalezar&display=swap" rel="stylesheet">
@@ -105,16 +110,17 @@ a { color: inherit; }
 
 /* Scroll-driven hands: --e is how close the hands are, --h draws the heart, --c reveals the caption (all set by script on scroll; defaults show the final state) */
 .reach { --e: 1; --h: 1; --c: 1; height: 210vh; height: 210svh; }
+@media (max-width: 40rem) { .reach { height: 170vh; height: 170svh; } }
 .reach-stage { position: sticky; top: env(safe-area-inset-top, 0px); height: 100vh; height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: clamp(0.5rem, 2.5vh, 1.5rem); }
 .reach-heart { width: clamp(2.6rem, 8vw, 3.6rem); height: auto; filter: drop-shadow(0 0 6px var(--cyan)) drop-shadow(0 0 18px rgba(46, 230, 224, 0.55)); opacity: calc(0.25 + 0.75 * var(--h)); }
 .reach-heart path { fill: none; stroke: var(--cyan); stroke-width: 1.2; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: calc(1 - var(--h)); }
-.hands-view { position: relative; width: 100%; height: clamp(13rem, 36vw, 21rem); overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%); }
-.hands-inner { position: absolute; left: 50%; top: 50%; width: max(100%, 46rem); aspect-ratio: 1082 / 296; transform: translate(-50%, -50%); }
-@media (max-width: 46rem) { .hands-inner { transform: translate(-57%, -50%); } }
-.hand { position: absolute; inset: 0; width: 100%; height: 100%; display: block; max-width: none; will-change: transform, opacity; opacity: calc(0.25 + 0.75 * var(--e)); }
-.hand-l { transform: translate3d(calc((1 - var(--e)) * -36%), calc((1 - var(--e)) * 5%), 0) rotate(calc((1 - var(--e)) * -4deg)); transform-origin: 20% 50%; }
-.hand-r { transform: translate3d(calc((1 - var(--e)) * 24%), calc((1 - var(--e)) * -4%), 0) rotate(calc((1 - var(--e)) * 3deg)); transform-origin: 80% 50%; }
-.touch-glow { position: absolute; left: 57%; top: 52%; width: 34%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(46, 230, 224, 0.55) 0%, rgba(46, 230, 224, 0.18) 38%, rgba(46, 230, 224, 0) 70%); transform: translate(-50%, -50%) scale(calc(0.3 + 0.9 * var(--e))); opacity: calc(var(--e) * var(--e) * 0.9); mix-blend-mode: screen; pointer-events: none; }
+.hands-view { position: relative; width: 100%; height: clamp(16rem, 44vw, 24rem); overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%); }
+.hands-inner { position: absolute; left: 50%; top: 50%; width: max(100%, 38rem); aspect-ratio: 1082 / 296; transform: translate(-50%, -50%); }
+@media (max-width: 38rem) { .hands-inner { transform: translate(-56%, -50%); } }
+.hand { position: absolute; inset: 0; width: 100%; height: 100%; display: block; max-width: none; will-change: transform, opacity; opacity: calc(0.6 + 0.4 * var(--e)); }
+.hand-l { transform: translate3d(calc((1 - var(--e)) * -26%), calc((1 - var(--e)) * 5%), 0) rotate(calc((1 - var(--e)) * -4deg)); transform-origin: 20% 50%; }
+.hand-r { transform: translate3d(calc((1 - var(--e)) * 18%), calc((1 - var(--e)) * -4%), 0) rotate(calc((1 - var(--e)) * 3deg)); transform-origin: 80% 50%; }
+.touch-glow { position: absolute; left: 57%; top: 52%; width: min(34%, 15rem); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(46, 230, 224, 0.55) 0%, rgba(46, 230, 224, 0.18) 38%, rgba(46, 230, 224, 0) 70%); transform: translate(-50%, -50%) scale(calc(0.3 + 0.9 * var(--e))); opacity: calc(var(--e) * var(--e) * 0.9); mix-blend-mode: screen; pointer-events: none; }
 .met .touch-glow { animation: glow 2.8s ease-in-out infinite; }
 @keyframes glow { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(1.35); } }
 .reach-cap { font-family: var(--f-display); font-size: clamp(1.4rem, 4.6vw, 2.1rem); line-height: 1.5; text-align: center; max-width: 26ch; margin: 0; text-wrap: balance; opacity: var(--c); transform: translateY(calc((1 - var(--c)) * 14px)); }
@@ -173,12 +179,27 @@ a { color: inherit; }
 .quote p { margin: 0; font-size: clamp(1.05rem, 3vw, 1.3rem); line-height: 2; color: #d8eef0; }
 footer { text-align: center; color: var(--mute); font-size: 0.85rem; }
 
+@media (max-width: 40rem) {
+  body { font-size: 1.0625rem; }
+  .btn { align-self: stretch; justify-content: center; padding: 0.8rem 1.3rem; font-size: 1.05rem; }
+  .copy { min-height: 2.75rem; padding: 0.3rem 1.2rem; font-size: 0.95rem; }
+  .link-card, .pay { padding: 1.2rem 1.1rem; }
+  .pay .pnum { font-size: 1.5rem; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .heart { animation: none; }
   .met .touch-glow { animation: none; }
   .btn { transition: none; }
 }
 </style>
+<style>
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { margin: 0; overflow-x: hidden; }
+</style>
+</head>
+<body>
+
 
 <div class="page" dir="rtl" lang="ar">
 
@@ -335,3 +356,6 @@ document.querySelectorAll('[data-copy]').forEach(function (btn) {
   update();
 })();
 </script>
+
+</body>
+</html>
